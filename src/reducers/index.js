@@ -4,6 +4,5 @@ import countriesReducer from './countriesReducer';
 
 export default combineReducers({
     continents: continentsReducer,
-    countries: countriesReducer,
-    selectedContinent: countriesReducer
+    countries: countriesReducer
 });

@@ -13,6 +13,10 @@ class CountryList extends React.Component {
     }
 
     render() {
+
+        if(this.props.countries.length === 0)
+            return <div className="loading">Select a continent to view countries</div>
+
         return (
             <div className="ui cards">{this.renderList()}</div>
         )

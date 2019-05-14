@@ -6,8 +6,18 @@
     background-color: deepskyblue;
     font-size: 15px;
     font-weight: bolder;
+    cursor: pointer;
 }
 
-.selected-card {
+.ui.card.custom-card.selected-card {
     background-color: yellow;
+}
+
+.ui.cards {
+    overflow-y: scroll;
+    height: 500px;
+}
+
+.loading {
+    font-size: 20px;
 }

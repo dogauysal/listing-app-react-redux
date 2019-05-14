@@ -5,14 +5,23 @@ import { fetchCountriesByContinent } from '../actions';
 
 class ContinentList extends React.Component {
 
-    componentDidUpdate() {
-
+    state={
+        active: null
     }
 
     render() {
-        return  this.props.continents.map(continent => { 
+        return  this.props.continents.map((continent,index) => {
             return (
-                <div className="ui card  custom-card" onClick={() => this.props.fetchCountriesByContinent(continent.region)} >
+
+                <div key={index} className={`ui card custom-card ${this.state.active === index ? `selected-card` : `` } `} onClick={() => {
+                    this.props.fetchCountriesByContinent(continent.region)
+                    this.setState(prevState=>{
+                        return{
+                            ...prevState,
+                            active: index
+                        }
+                    })
+                    }} >
                     <div className="content ">
                         <div className="center aligned description ">
                             <p>{continent.region}</p>
@@ -25,9 +34,8 @@ class ContinentList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { 
-        continents: state.continents, 
-        selectedContinent: state.selectedContinent  
+    return {
+        continents: state.continents
     }
 }
 
